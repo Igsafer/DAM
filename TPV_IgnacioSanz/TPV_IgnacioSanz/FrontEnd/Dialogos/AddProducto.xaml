@@ -1,0 +1,116 @@
+﻿<mah:MetroWindow x:Class="TPV_IgnacioSanz.FrontEnd.Dialogos.AddProducto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:TPV_IgnacioSanz.FrontEnd.Dialogos"
+        mc:Ignorable="d"
+        Title="AddProducto" Height="550" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--CABECERA-->
+        <Border Grid.ColumnSpan="3" Background="#2B2B2B"/>
+        <TextBlock Grid.ColumnSpan="3" Text="NUEVO PRODUCTO" Foreground="White" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" FontSize="30"/>
+
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="4" Text="Los campos marcados con * son obligatorios" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   FontSize="20" FontWeight="Bold" Margin="-20,0,0,0" Foreground="Crimson"/>
+
+
+        <!--DESCRIPCION-->
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="DESCRIPCIÓN*" FontStyle="Italic" FontWeight="Bold" 
+                   VerticalAlignment="Center" Height="40" FontSize="20" Foreground="Black" Margin="0,15,0,0"/>
+
+        <TextBox x:Name="txtDescripcion" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="200" 
+                 Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,65,0,0" Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+        <Image x:Name="imgErrorDescripcion" Grid.Row="1"  Source="/Recursos/Iconos/error.png" Height="24" Margin="0,64,10,0" Visibility="Hidden"/>
+
+
+        <!--PRECIO-->
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="PRECIO*" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Height="40" FontSize="20" Foreground="Black" Margin="0,35,0,20"/>
+
+        <mah:NumericUpDown x:Name="txtPrecio" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,65,0,0" Value="0" Interval="0.1"  NumericInputMode="Decimal"/>
+
+
+        <!--UBICACION-->
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="UBICACIÓN" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Height="40" FontSize="20" Foreground="Black"/>
+
+        <ComboBox x:Name="comboUbicacion" Grid.Row="2" Grid.ColumnSpan="2"
+                  Style="{StaticResource MahApps.Styles.ComboBox}" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                  Width="200" Margin="0,0,0,7" BorderThickness="1" BorderBrush="Black" IsEditable="True" IsReadOnly="True"
+                  mah:TextBoxHelper.Watermark="Selecciona una ubicación"/>
+
+
+        <!--CANTIDAD-->
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="CANTIDAD*" FontWeight="Bold" FontStyle="Italic" FontSize="20" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10"/>
+
+        <mah:NumericUpDown x:Name="txtCantidad" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,50,0,0" Value="0" Interval="1"  NumericInputMode="Numbers"/>
+
+        <!--IVA-->
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="IVA*" FontSize="20" FontWeight="Bold" FontStyle="Italic" Margin="0,0,0,25"/>
+        <ComboBox x:Name="comboIVA" Grid.Row="3" Grid.ColumnSpan="2"
+                  Style="{StaticResource MahApps.Styles.ComboBox}" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                  Width="200" Margin="0,0,0,15" BorderThickness="1" BorderBrush="Black" IsEditable="True" IsReadOnly="True"
+                  mah:TextBoxHelper.Watermark="Selecciona un % de IVA"/>
+        <Image x:Name="imgErrorIVA" Grid.Row="3" Grid.Column="1" Source="/Recursos/Iconos/error.png" Height="24" 
+               VerticalAlignment="Bottom" Visibility="Hidden" Margin="0,0,20,16"/>
+
+        <!--TIPO DE PRODUCTO-->
+        <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="TIPO*" FontWeight="Bold" FontStyle="Italic" FontSize="20"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,25"/>
+
+        <ComboBox x:Name="comboTipo" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                  Style="{StaticResource MahApps.Styles.ComboBox}" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                  Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,15" IsEditable="True" IsReadOnly="True"
+                  mah:TextBoxHelper.Watermark="Selecciona un tipo de producto" DisplayMemberPath="nombre"/>
+
+        <Image x:Name="imgErrorTipo" Grid.Row="3" Grid.Column="2" Source="/Recursos/Iconos/error.png" Height="24" Margin="10,39,0,0" Visibility="Hidden"/>
+        
+        
+        <!--IMAGEN-->
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="IMAGEN*" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="20" FontWeight="Bold" Margin="0,0,0,30"/>
+        <TextBox x:Name="txtImagen" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsReadOnly="True"
+                 Width="140" Margin="0,45,55,0" Style="{StaticResource MahApps.Styles.TextBox}"/>
+        <Button x:Name="btnImagen" Grid.Row="4" Grid.Column="1" Content="..." HorizontalAlignment="Left" Margin="42,40,0,0"
+                Width="60" Height="10" BorderThickness="1" BorderBrush="Black" Click="btnImagen_Click"
+                Style="{StaticResource MahApps.Styles.Button.Dialogs}"/>
+        <Image x:Name="imgErrorImagen" Grid.Row="4" Source="/Recursos/Iconos/error.png" Height="24" Margin="10,44,0,0" Visibility="Hidden"/>
+        
+
+
+        <!--BOTONES-->
+        <Button x:Name="btnCancelar" Grid.Row="4" Grid.Column="2"  Width="130" Margin="-60,45,0,0" HorizontalAlignment="Left" 
+                Content="CANCELAR" BorderThickness="1" Click="btnCancelar_Click" IsCancel="True"/>
+
+        <Button x:Name="btnGuardar" Grid.Row="4" Grid.Column="2" Width="130" Margin="90,45,0,0" Content="GUARDAR" 
+                 BorderThickness="1" Click="btnGuardar_Click" IsDefault="True"
+                 Style="{StaticResource MahApps.Styles.Button.Dialogs}"/>
+
+
+        <!--MENSAJES DE ERROR-->
+        <TextBlock x:Name="txtErrorCampos" Grid.Row="5" Grid.ColumnSpan="3" Foreground="Red" FontWeight="Bold" Text="" FontSize="15"/>
+    </Grid>
+</mah:MetroWindow>

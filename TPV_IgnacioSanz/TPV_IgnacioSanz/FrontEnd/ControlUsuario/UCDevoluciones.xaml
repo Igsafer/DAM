@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="TPV_IgnacioSanz.FrontEnd.ControlUsuario.UCDevoluciones"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TPV_IgnacioSanz.FrontEnd.ControlUsuario"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" x:Name="gridTop">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="DEVOLUCIONES/LISTADO DE VENTAS" Grid.ColumnSpan="4" FontSize="18" Margin="10"/>
+            
+            <!--#region FILTROS-->
+            <!--POR FECHAS-->
+            <TextBlock Grid.Row="1" Text="Fecha inicial" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,30,0"/>
+            <DatePicker x:Name="txtFechaInicial" Grid.Row="1" Grid.Column="1" Margin="0,0,30,0" VerticalAlignment="Center"
+                        SelectedDate="{Binding fechaInicial}" SelectedDateChanged="txtFechaInicial_SelectedDateChanged"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="Fecha final" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,30,0"/>
+            <DatePicker x:Name="txtFechaFinal" Grid.Row="1" Grid.Column="3" Margin="0,0,30,0" VerticalAlignment="Center"
+                        SelectedDate="{Binding fechaFinal}" SelectedDateChanged="txtFechaFinal_SelectedDateChanged"/>
+
+            <Rectangle Grid.Row="1" Grid.Column="4" Fill="Black" Width="1"/>
+            
+            
+            <!--POR CLIENTE-->
+            <TextBlock Grid.Row="1" Grid.Column="5" Text="Buscar por cliente" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <ComboBox x:Name="comboCliente" Grid.Row="1" Grid.Column="6" Text="Seleccione un cliente" Width="150" Margin="20,0,0,0"
+                      VerticalAlignment="Center" Style="{StaticResource MahApps.Styles.ComboBox}" DisplayMemberPath="nombrecompleto"
+                      SelectionChanged="comboCliente_SelectionChanged" IsEditable="True" IsReadOnly="True"
+                      SelectedItem="{Binding clienteSeleccionado, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Rectangle Grid.Row="1" Grid.Column="7" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            <!--BOTONES-->
+            <Button x:Name="btnQuitaFiltro" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="8" Width="50" Click="btnQuitaFiltro_Click">
+                <Image Source="/Recursos/Iconos/quitarfiltro.png" Height="24"/>
+            </Button>
+
+            <Rectangle Grid.Row="1" Grid.Column="9" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            <Button x:Name="btnBorrar" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="10" Width="50" Click="btnBorrar_Click" ToolTip="Devolver al cliente">
+                <Image Source="/Recursos/Iconos/devolucion.png" Height="24"/>
+            </Button>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region GRID CENTRAL-->
+        <Grid x:Name="gridCentral">
+            <DataGrid x:Name="dgListaVentas" AutoGenerateColumns="False" ColumnWidth="*" RowBackground="White"
+                      CanUserAddRows="False" IsReadOnly="True" AlternatingRowBackground="#fff0e6">
+                
+                <!--#region DETALLES DE LAS FILAS-->
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <ListView x:Name="lvVentaProductos" ItemsSource="{Binding venta_producto}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="PRODUCTO" DisplayMemberBinding="{Binding producto1.descripcion}"/>
+                                        <GridViewColumn Header="CANTIDAD" DisplayMemberBinding="{Binding cantidad}"/>
+                                        <GridViewColumn Header="PRECIO/UD" DisplayMemberBinding="{Binding producto1.precio}"/>
+                                        <GridViewColumn Header="TOTAL" DisplayMemberBinding="{Binding preciototal}"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                            <Button x:Name="btnQuitaDetalles" Click="btnQuitaDetalles_Click" Width="32" Height="32"
+                                    VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" ToolTip="Esconder detalles"
+                                    Style="{StaticResource MahApps.Styles.Button.Circle}">
+                                <mat:PackIcon Kind="Minus" Foreground="DarkRed"/>
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+                <!--#endregion-->                
+                
+                <!--#region DATAGRID COLUMNS-->
+                <DataGrid.Columns>
+                    <!--FECHA-->
+                    <DataGridTextColumn Binding="{Binding fecha}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="FECHA" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    
+                    <!--TOTAL-->
+                    <DataGridTextColumn Binding="{Binding total}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="TOTAL" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <!--TIPOCOBRO-->
+                    <DataGridTextColumn Binding="{Binding tipocobro}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="TIPO DE COBRO" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    
+                    <!--CLIENTE-->
+                    <DataGridTextColumn Binding="{Binding cliente1.nombrecompleto}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="CLIENTE" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    
+                </DataGrid.Columns>
+                <!--#endregion-->
+                
+            </DataGrid>
+        </Grid>
+        <!--#endregion-->
+        
+    </DockPanel>
+</UserControl>

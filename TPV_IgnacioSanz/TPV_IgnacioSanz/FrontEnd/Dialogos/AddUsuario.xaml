@@ -1,0 +1,102 @@
+﻿<mah:MetroWindow x:Class="TPV_IgnacioSanz.FrontEnd.Dialogos.AddUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:TPV_IgnacioSanz.FrontEnd.Dialogos"
+        mc:Ignorable="d"
+        Title="AddUsuario" Height="520" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--CABECERA-->
+        <Border Grid.ColumnSpan="3" Background="#2B2B2B"/>
+        <TextBlock Grid.ColumnSpan="3" Text="NUEVO USUARIO" Foreground="White" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" FontSize="30"/>
+
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="4" Text="Todos los campos son obligatorios" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   FontSize="20" FontWeight="Bold" Margin="-20,0,0,0" Foreground="Crimson"/>
+
+        <!--NOMBRE-->
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="NOMBRE*" FontStyle="Italic" FontWeight="Bold" 
+                   VerticalAlignment="Center" Height="40" FontSize="20" Foreground="Black" Margin="0,15,0,0"/>
+
+        <TextBox x:Name="txtNombre" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="200" 
+                 Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,65,0,0" Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+        <Image x:Name="imgErrorNombre" Grid.Row="1"  Source="/Recursos/Iconos/error.png" Height="24" Margin="0,64,10,0" Visibility="Hidden"/>
+
+
+        <!--APELLIDOS-->
+        <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="APELLIDOS*" FontStyle="Italic" FontWeight="Bold" 
+                   VerticalAlignment="Center" Height="40" FontSize="20" Foreground="Black" Margin="0,15,0,0"/>
+
+        <TextBox x:Name="txtApellidos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="200" 
+                 Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,65,0,0" Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+        <Image x:Name="imgErrorApellidos" Grid.Row="1" Grid.Column="2" Source="/Recursos/Iconos/error.png" Height="24" VerticalAlignment="Bottom" Margin="10,0,0,0" Visibility="Hidden"/>
+
+
+        
+        <!--USERNAME-->
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="USERNAME*" FontStyle="Italic" FontWeight="Bold" 
+                   VerticalAlignment="Center" Height="40" FontSize="20" Foreground="Black" Margin="0,15,0,0"/>
+
+        <TextBox x:Name="txtUsername" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="200" 
+                 Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,65,0,0" Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+        <Image x:Name="imgErrorUsername" Grid.Row="2"  Source="/Recursos/Iconos/error.png" Height="24" Margin="0,64,10,0" Visibility="Hidden"/>
+
+
+        <!--CONTRASEÑA-->
+        <TextBlock Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="CONTRASEÑA*" FontStyle="Italic" FontWeight="Bold" 
+                   VerticalAlignment="Center" Height="40" FontSize="20" Foreground="Black" Margin="0,15,0,0"/>
+
+        <TextBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="200" 
+                 Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,65,0,0" Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+        <Image x:Name="imgErrorPassword" Grid.Row="2" Grid.Column="2" Source="/Recursos/Iconos/error.png" Height="24" VerticalAlignment="Bottom" Margin="10,0,0,0" Visibility="Hidden"/>
+
+
+        <!--.ROL-->
+        <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="ROL*" FontWeight="Bold" FontStyle="Italic" FontSize="20"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,25"/>
+
+        <ComboBox x:Name="comboRol" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                  Style="{StaticResource MahApps.Styles.ComboBox}" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                  Width="200" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,10" IsEditable="True" IsReadOnly="True"
+                  mah:TextBoxHelper.Watermark="Selecciona un rol" DisplayMemberPath="nombre"/>
+
+        <Image x:Name="imgErrorRol" Grid.Row="3" Grid.Column="2" Source="/Recursos/Iconos/error.png" Height="24" Margin="10,34,0,0" Visibility="Hidden"/>
+
+
+        <!--BOTONES-->
+        <Button x:Name="btnCancelar" Grid.Row="4" Grid.Column="2"  Width="130" Margin="-60,45,0,0" HorizontalAlignment="Left" 
+                Content="CANCELAR" BorderThickness="1" Click="btnCancelar_Click" IsCancel="True"/>
+
+        <Button x:Name="btnGuardar" Grid.Row="4" Grid.Column="2" Width="130" Margin="90,45,0,0" Content="GUARDAR" 
+                 BorderThickness="1" Click="btnGuardar_Click" IsDefault="True"
+                 Style="{StaticResource MahApps.Styles.Button.Dialogs}"/>
+
+
+        <!--MENSAJES DE ERROR-->
+        <TextBlock x:Name="txtErrorCampos" Grid.Row="5" Grid.ColumnSpan="3" Foreground="Red" FontWeight="Bold" FontSize="15"/>
+        <TextBlock x:Name="txtErrorUnico" Grid.Row="6" Grid.ColumnSpan="3" Foreground="Red" FontWeight="Bold" FontSize="15"/>
+
+    </Grid>
+</mah:MetroWindow>

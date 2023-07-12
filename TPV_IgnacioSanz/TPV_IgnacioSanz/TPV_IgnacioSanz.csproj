@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5637FD60-7996-4993-BF82-CEBE4DC3CCBB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TPV_IgnacioSanz</RootNamespace>
+    <AssemblyName>TPV_IgnacioSanz</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.5.0.2\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fluent, Version=9.0.0.0, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.9.0.4\lib\net462\Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.2.0.0\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.1.2.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.1.2\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.2.8.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.2.8\lib\net462\MaterialDesignThemes.MahApps.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.8.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.8.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.1.2\lib\net46\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BackEnd\Modelo\cliente.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\oferta.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\permiso.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\producto.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\rol.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\tipoproducto.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\TPVModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPVModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\TPVModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\TPVModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TPVModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\usuario.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\venta.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Modelo\venta_producto.cs">
+      <DependentUpon>TPVModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackEnd\Servicios\ServicioCharts.cs" />
+    <Page Include="FrontEnd\ControlUsuario\UCDevoluciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\ControlUsuario\UCListaClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\ControlUsuario\UCListaCompra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\ControlUsuario\UCListaProductos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\ControlUsuario\UCListaUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\ControlUsuario\UCProductos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\AddCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\AddProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\AddUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\AddVenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\EditCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\EditPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\EditProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\Factura.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrontEnd\Dialogos\ReponerProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BackEnd\Servicios\IServicioGenerico.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioCliente.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioGenerico.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioOferta.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioPermiso.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioProducto.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioRol.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioTipoProducto.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioUsuario.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioVenta.cs" />
+    <Compile Include="BackEnd\Servicios\ServicioVentaProducto.cs" />
+    <Compile Include="FrontEnd\ClasesAuxiliares\BotonProducto.cs" />
+    <Compile Include="FrontEnd\ClasesAuxiliares\BotonTipo.cs" />
+    <Compile Include="FrontEnd\ControlUsuario\UCDevoluciones.xaml.cs">
+      <DependentUpon>UCDevoluciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\ControlUsuario\UCListaClientes.xaml.cs">
+      <DependentUpon>UCListaClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\ControlUsuario\UCListaCompra.xaml.cs">
+      <DependentUpon>UCListaCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\ControlUsuario\UCListaProductos.xaml.cs">
+      <DependentUpon>UCListaProductos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\ControlUsuario\UCListaUsuarios.xaml.cs">
+      <DependentUpon>UCListaUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\ControlUsuario\UCProductos.xaml.cs">
+      <DependentUpon>UCProductos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\AddCliente.xaml.cs">
+      <DependentUpon>AddCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\AddProducto.xaml.cs">
+      <DependentUpon>AddProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\AddUsuario.xaml.cs">
+      <DependentUpon>AddUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\AddVenta.xaml.cs">
+      <DependentUpon>AddVenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\EditCliente.xaml.cs">
+      <DependentUpon>EditCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\EditPassword.xaml.cs">
+      <DependentUpon>EditPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\EditProducto.xaml.cs">
+      <DependentUpon>EditProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\Factura.xaml.cs">
+      <DependentUpon>Factura.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Dialogos\ReponerProducto.xaml.cs">
+      <DependentUpon>ReponerProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="BackEnd\Modelo\TPVModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TPVModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BackEnd\Modelo\TPVModel.edmx.diagram">
+      <DependentUpon>TPVModel.edmx</DependentUpon>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Recursos\Imagenes\agua.jpg" />
+    <Resource Include="Recursos\Imagenes\agua33cl.jpg" />
+    <Resource Include="Recursos\Imagenes\cerveza00.jpg" />
+    <Resource Include="Recursos\Imagenes\energeticas.jpg" />
+    <Resource Include="Recursos\Imagenes\estrellagalicia.png" />
+    <Resource Include="Recursos\Imagenes\estrellagalicia00.png" />
+    <Resource Include="Recursos\Imagenes\hela.png" />
+    <Resource Include="Recursos\Imagenes\hidromiel.png" />
+    <Resource Include="Recursos\Imagenes\limonzio.jpg" />
+    <Resource Include="Recursos\Imagenes\loki.png" />
+    <Resource Include="Recursos\Imagenes\odin.png" />
+    <Resource Include="Recursos\Imagenes\redbull.png" />
+    <Resource Include="Recursos\Imagenes\rusoblanco.png" />
+    <Resource Include="Recursos\Imagenes\sanmiguel.png" />
+    <Resource Include="Recursos\Imagenes\tonica.jpg" />
+    <Resource Include="Recursos\Imagenes\tonicaoriginal.jpg" />
+    <Resource Include="Recursos\Imagenes\turia.jpg" />
+    <Resource Include="Recursos\Imagenes\vichycatalan.jpg" />
+    <Resource Include="Recursos\Imagenes\volldamm.png" />
+    <Resource Include="Recursos\Iconos\addCliente.png" />
+    <Resource Include="Recursos\Iconos\addProducto.png" />
+    <Resource Include="Recursos\Iconos\devolucion.png" />
+    <Resource Include="Recursos\Iconos\editar.gif" />
+    <Resource Include="Recursos\Iconos\borrar.png" />
+    <Resource Include="Recursos\Iconos\error.png" />
+    <Resource Include="Recursos\Iconos\estadisticas.png" />
+    <Resource Include="Recursos\Iconos\facebook.png" />
+    <Resource Include="Recursos\Iconos\google.png" />
+    <Resource Include="Recursos\Iconos\lista1.png" />
+    <Resource Include="Recursos\Iconos\lista2.png" />
+    <Resource Include="Recursos\Iconos\lista3.png" />
+    <Resource Include="Recursos\Iconos\lista4.png" />
+    <Resource Include="Recursos\Iconos\marketing.png" />
+    <Resource Include="Recursos\Iconos\quitarfiltro.png" />
+    <Resource Include="Recursos\Iconos\stats.png" />
+    <Resource Include="Recursos\Iconos\ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Imagenes\cafecapuccino.jpg" />
+    <Resource Include="Recursos\Imagenes\cafeconleche.jpg" />
+    <Resource Include="Recursos\Imagenes\cafedescafeinado.jpg" />
+    <Resource Include="Recursos\Imagenes\hotdog.jpg" />
+    <Resource Include="Recursos\Imagenes\cocacola.jpg" />
+    <Resource Include="Recursos\Imagenes\coctel.jpg" />
+    <Resource Include="Recursos\Imagenes\gingerale.jpg" />
+    <Resource Include="Recursos\Imagenes\monster.jpg" />
+    <Resource Include="Recursos\Imagenes\nestea.jpg" />
+    <Resource Include="Recursos\Imagenes\sprite.jpg" />
+    <Resource Include="Recursos\Imagenes\cerveza.jpg" />
+    <Resource Include="Recursos\Imagenes\copa.jpg" />
+    <Resource Include="Recursos\Imagenes\refresco.jpg" />
+    <Resource Include="Recursos\Imagenes\vino.jpg" />
+    <Resource Include="Recursos\Imagenes\logoblanco.png" />
+    <Resource Include="Recursos\Imagenes\logonaranja.png" />
+    <Resource Include="Recursos\Imagenes\bocadilloentero.jpg" />
+    <Resource Include="Recursos\Imagenes\bocadilloespecial.jpg" />
+    <Resource Include="Recursos\Imagenes\bocadillos.jpg" />
+    <Resource Include="Recursos\Imagenes\cafeirlandes.png" />
+    <Resource Include="Recursos\Imagenes\cafes.png" />
+    <Resource Include="Recursos\Imagenes\cafesolo.png" />
+    <Resource Include="Recursos\Imagenes\malavida.png" />
+    <Resource Include="Recursos\Imagenes\mediobocadillo.jpg" />
+    <Resource Include="Recursos\Imagenes\protos.png" />
+    <Resource Include="Recursos\Imagenes\ramonbilbao.png" />
+    <Resource Include="Recursos\Imagenes\sangredejudas.jpg" />
+    <Resource Include="Recursos\Iconos\ventas2.png" />
+    <Resource Include="Recursos\Iconos\reponer.png" />
+    <Resource Include="Recursos\Iconos\addUsuario.png" />
+    <Resource Include="Recursos\Iconos\volver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BackEnd\Modelo\TPVModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPVModel.edmx</DependentUpon>
+      <LastGenOutput>TPVModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BackEnd\Modelo\TPVModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TPVModel.edmx</DependentUpon>
+      <LastGenOutput>TPVModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />
+</Project>

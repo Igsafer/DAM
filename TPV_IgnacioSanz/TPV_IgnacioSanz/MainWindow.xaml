@@ -1,0 +1,79 @@
+﻿<mah:MetroWindow x:Class="TPV_IgnacioSanz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:local="clr-namespace:TPV_IgnacioSanz"
+        mc:Ignorable="d"
+        Title="BAR IGNACIO" Height="750" Width="1200">
+
+    <!--#region PANEL SUPERIOR-->
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Fluent:Ribbon>
+                <Fluent:Ribbon.Menu>
+                    <Fluent:Backstage>
+                        <Fluent:BackstageTabControl>
+                            <Fluent:Button Header="Inicio" x:Name="btnInicio" Icon="{mat:PackIcon Kind=Home}" Click="btnInicio_Click"/>
+                            <Fluent:Button Header="Cerrar sesión" x:Name="btnCerrarSesion" Icon="{mat:PackIcon Kind=Shutdown}" Click="btnCerrarSesion_Click"/>
+                        </Fluent:BackstageTabControl>                        
+                    </Fluent:Backstage>
+                </Fluent:Ribbon.Menu>
+
+                <!--VENTAS-->
+                <Fluent:RibbonTabItem Header="VENTAS" Margin="0,0,10,0"  FontWeight="Bold" FontSize="13" IsSelected="True">
+                    <Fluent:RibbonGroupBox Header="Operaciones">
+                        <Fluent:Button x:Name="btnVentas" Header="Ventas" LargeIcon="/Recursos/Iconos/ventas.png" Margin="10" FontWeight="Regular" Click="btnVentas_Click"/>
+                        <Fluent:Button x:Name="btnDevoluciones" Header="Devoluciones" LargeIcon="/Recursos/Iconos/devolucion.png" Margin="10" FontWeight="Regular" Click="btnDevoluciones_Click"/>
+                    </Fluent:RibbonGroupBox>
+                    <Fluent:RibbonGroupBox Header="Consultas">
+                        <Fluent:Button x:Name="btnGraficoVentas" Header="Gráfico de ventas" LargeIcon="/Recursos/Iconos/stats.png" FontWeight="Regular"/>
+                    </Fluent:RibbonGroupBox>
+                </Fluent:RibbonTabItem>
+
+                <!--CLIENTES-->
+                <Fluent:RibbonTabItem Header="CLIENTES" Margin="10,0,10,0" FontWeight="Bold" FontSize="13">
+                    <Fluent:RibbonGroupBox Header="Operaciones">
+                        <Fluent:Button x:Name="btnAddCliente" Header="Nuevo cliente" LargeIcon="/Recursos/Iconos/addCliente.png" FontWeight="Regular" Click="btnAddCliente_Click"/>
+                        <Fluent:Button x:Name="btnMarketing" Header="Gestión campañas de marketing" LargeIcon="/Recursos/Iconos/marketing.png" FontWeight="Regular"/>
+                    </Fluent:RibbonGroupBox>
+                    <Fluent:RibbonGroupBox Header="Consultas">
+                        <Fluent:Button x:Name="btnListaClientes" Header="Listado de clientes" LargeIcon="/Recursos/Iconos/lista2.png" FontWeight="Regular" Click="btnListaClientes_Click"/>
+                    </Fluent:RibbonGroupBox>
+                </Fluent:RibbonTabItem>
+
+                <!--PRODUCTOS-->
+                <Fluent:RibbonTabItem Header="PRODUCTOS" Margin="10,0,10,0" FontWeight="Bold" FontSize="13">
+                    <Fluent:RibbonGroupBox Header="Operaciones">
+                        <Fluent:Button x:Name="btnAddProducto" Header="Nuevo producto" LargeIcon="/Recursos/Iconos/addProducto.png" FontWeight="Regular" Click="btnAddProducto_Click"/>
+                    </Fluent:RibbonGroupBox>
+                    <Fluent:RibbonGroupBox Header="Consultas">
+                        <Fluent:Button x:Name="btnListaProductos" Header="Listado de productos" LargeIcon="/Recursos/Iconos/lista3.png" FontWeight="Regular" Click="btnListaProductos_Click"/>
+                    </Fluent:RibbonGroupBox>
+                </Fluent:RibbonTabItem>
+
+                <!--USUARIOS-->
+                <Fluent:RibbonTabItem Header="USUARIOS" Margin="10,0,10,0" FontWeight="Bold" FontSize="13">
+                    <Fluent:RibbonGroupBox Header="Operaciones">
+                        <Fluent:Button x:Name="btnAddUsuario" Header="Nuevo usuario" LargeIcon="/Recursos/Iconos/addUsuario.png" FontWeight="Regular" Click="btnAddUsuario_Click"/>
+                    </Fluent:RibbonGroupBox>
+                    <Fluent:RibbonGroupBox Header="Consultas">
+                        <Fluent:Button x:Name="btnListaUsuarios" Header="Listado de usuarios" LargeIcon="/Recursos/Iconos/lista4.png" FontWeight="Regular" Click="btnListaUsuarios_Click"/>
+                    </Fluent:RibbonGroupBox>
+                </Fluent:RibbonTabItem>
+            </Fluent:Ribbon>
+        </Grid>
+        <!--#endregion-->
+
+
+        <!--#region PANEL INFERIOR-->
+        <Grid x:Name="gridCentral">
+
+        </Grid>
+        <!--#endregion-->
+        
+    </DockPanel>
+</mah:MetroWindow>

@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="TPV_IgnacioSanz.FrontEnd.ControlUsuario.UCListaClientes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TPV_IgnacioSanz.FrontEnd.ControlUsuario"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        
+        <!--#region FILTROS-->
+        <Grid DockPanel.Dock="Top" x:Name="gridTop">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="LISTA DE CLIENTES" FontSize="18" Margin="10"/>
+
+            <!--POR NOMBRE-->
+            <TextBlock Grid.Row="1" Text="Buscar por nombre: " FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox x:Name="txtBuscarPorNombre" Grid.Row="1" Grid.Column="1" Margin="-30,0,20,0" Width="120"
+                     VerticalAlignment="Center" Style="{StaticResource MahApps.Styles.TextBox}"
+                     TextChanged="txtBuscarPorNombre_TextChanged"
+                     Text="{Binding textoNombre, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Rectangle Grid.Row="1" Grid.Column="2" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            
+            <!--POR APELLIDO-->
+            <TextBlock Grid.Row="1" Grid.Column="3" Text="Buscar por apellido: " FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox x:Name="txtBuscarPorApellido" Grid.Row="1" Grid.Column="4" Margin="10,0,0,0" Width="120"
+                     VerticalAlignment="Center" Style="{StaticResource MahApps.Styles.TextBox}"
+                     TextChanged="txtBuscarPorApellido_TextChanged"
+                     Text="{Binding textoApellido, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Rectangle Grid.Row="1" Grid.Column="5" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            
+            <!--BOTONES-->
+            <Button x:Name="btnQuitaFiltro" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="6" Width="50" Click="btnQuitaFiltro_Click">
+                <Image Source="/Recursos/Iconos/quitarfiltro.png" Height="24"/>
+            </Button>
+
+            <Rectangle Grid.Row="1" Grid.Column="7" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            <Button x:Name="btnEditar" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="8" Width="50" Click="btnEditar_Click" ToolTip="Editar">
+                <Image Source="/Recursos/Iconos/editar.gif" Height="24"/>
+            </Button>
+
+            <Button x:Name="btnBorrar" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="9" Width="50" Click="btnBorrar_Click" ToolTip="Borrar">
+                <Image Source="/Recursos/Iconos/borrar.png" Height="24"/>
+            </Button>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region GRID CENTRAL-->
+        
+        <Grid x:Name="gridCentral">
+            <DataGrid x:Name="dgListaClientes" AutoGenerateColumns="False" ColumnWidth="*" RowBackground="White"
+                      CanUserAddRows="False" IsReadOnly="True" AlternatingRowBackground="#fff0e6">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding nombre}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="NOMBRE" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Binding="{Binding apellidos}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="APELLIDOS" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Binding="{Binding email}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="EMAIL" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Binding="{Binding direccion}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="DIRECCIÓN" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--#endregion-->
+        
+    </DockPanel>
+</UserControl>

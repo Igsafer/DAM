@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="TPV_IgnacioSanz.FrontEnd.ControlUsuario.UCListaProductos"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TPV_IgnacioSanz.FrontEnd.ControlUsuario"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" x:Name="gridTop">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="LISTA DE PRODUCTOS" FontSize="18" Margin="10"/>
+
+            <!--#region FILTROS-->
+            <TextBlock Grid.Row="1" Text="Filtrar por nombre" FontWeight="Bold" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Width="120" VerticalAlignment="Center" Margin="-70,0,20,0"
+                     Style="{StaticResource MahApps.Styles.TextBox}" TextChanged="txtNombre_TextChanged"
+                     Text="{Binding txtNombre, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="Filtrar por tipo producto" FontWeight="Bold" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            <ComboBox x:Name="comboTipo" Grid.Row="1" Grid.Column="3" IsEditable="True" IsReadOnly="True"
+                      Text="Seleccione un tipo" Width="150" Margin="20,0,0,0" VerticalAlignment="Center"
+                      Style="{StaticResource MahApps.Styles.ComboBox}" DisplayMemberPath="nombre"
+                      SelectionChanged="comboTipo_SelectionChanged"
+                      SelectedItem="{Binding tipoSeleccionado, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Rectangle Grid.Row="1" Grid.Column="4" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            <CheckBox x:Name="chkCantidad" Grid.Row="1" Grid.Column="5" Checked="chkCantidad_Checked" 
+                      Unchecked="chkCantidad_Unchecked" Content="Stock escaso (&lt;=10)" Margin="10,0,0,0" Foreground="Black"
+                      IsChecked="{Binding cantidad, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Rectangle Grid.Row="1" Grid.Column="6" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            <!--BOTONES-->
+            <Button x:Name="btnQuitaFiltro" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="7" Width="50" Click="btnQuitaFiltro_Click">
+                <Image Source="/Recursos/Iconos/quitarfiltro.png" Height="24"/>
+            </Button>
+
+            <Rectangle Grid.Row="1" Grid.Column="8" Fill="Black" Width="1" Margin="10,0,0,0"/>
+
+            <Button x:Name="btnEditar" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="9" Width="50" Click="btnEditar_Click" ToolTip="Editar">
+                <Image Source="/Recursos/Iconos/editar.gif" Height="24"/>
+            </Button>
+
+            <Button x:Name="btnBorrar" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="10" Width="50" Click="btnBorrar_Click" ToolTip="Borrar">
+                <Image Source="/Recursos/Iconos/borrar.png" Height="24"/>
+            </Button>
+
+            <Button x:Name="btnReponer" Style="{StaticResource MahApps.Styles.Button.ToolBar}"
+                    Grid.Row="1" Grid.Column="11" Width="50" Click="btnReponer_Click" ToolTip="Reponer">
+                <Image Source="/Recursos/Iconos/reponer.png" Height="24"/>
+            </Button>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region DATAGRID-->
+        <Grid x:Name="gridCentral">
+            <DataGrid x:Name="dgListaProductos" AutoGenerateColumns="False" ColumnWidth="*" RowBackground="White"
+                      CanUserAddRows="False" IsReadOnly="True" AlternatingRowBackground="#fff0e6">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="IMAGEN" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding imagen}" Height="60"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Binding="{Binding descripcion}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="NOMBRE" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Binding="{Binding precio}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="PRECIO" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Binding="{Binding cantidad}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="CANTIDAD" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Binding="{Binding tipoproducto.nombre}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="TIPO PRODUCTO" FontSize="16" FontWeight="Bold"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>                
+            </DataGrid>
+        </Grid>
+        <!--#endregion-->
+        
+    </DockPanel>
+</UserControl>

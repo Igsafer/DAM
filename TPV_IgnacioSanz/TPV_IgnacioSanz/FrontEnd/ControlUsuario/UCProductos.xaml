@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="TPV_IgnacioSanz.FrontEnd.ControlUsuario.UCProductos"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TPV_IgnacioSanz.FrontEnd.ControlUsuario"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+
+        <!--#region PANEL IZQUIERDA-->
+        <Grid DockPanel.Dock="Left" x:Name="gridIzquierda" Width="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="gridListaCompra">
+
+            </Grid>
+        </Grid>
+
+        <!--#region PANEL DERECHA-->
+        <Grid x:Name="gridCentral">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Tipo de productos" FontSize="15" Margin="50,0,0,0"/>
+            <ScrollViewer Grid.Row="1">
+                <WrapPanel  x:Name="panelTipoProducto"  Margin="100,0,0,0"/>                
+            </ScrollViewer>
+
+            <TextBlock Grid.Row="2" Text="Productos" FontSize="15" Margin="50,0,0,0"/>
+            <ScrollViewer Grid.Row="3">
+                <WrapPanel  x:Name="panelProducto" Margin="100,0,0,0"/>                
+            </ScrollViewer>
+
+        </Grid>
+    </DockPanel>
+</UserControl>
